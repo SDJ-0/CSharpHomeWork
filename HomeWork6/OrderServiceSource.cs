@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -59,7 +59,7 @@ namespace Example6_1
             {
                 if (CheckOrder(order))
                 {
-                    throw new MatchException("Add order match error", 1);
+                    throw new MatchException("Add order match error!", 1);
                 }
                 orders.Add(new Order(order));
             }
@@ -69,7 +69,7 @@ namespace Example6_1
                 Order order = FindOrderID(ID);
                 if (order == null)
                 {
-                    throw new MatchException("Order match error", 0);
+                    throw new MatchException("Order match error!", 0);
                 }
                 order.AddOrderItem(orderitem);
             }
@@ -79,7 +79,7 @@ namespace Example6_1
                 Order order = FindOrderID(ID);
                 if (order == null)
                 {
-                    throw new MatchException("Delete order match error", 2);
+                    throw new MatchException("Delete order match error!", 2);
                 }
                 orders.Remove(order);
             }
@@ -89,7 +89,7 @@ namespace Example6_1
                 Order order = FindOrderID(Order_ID);
                 if (order == null)
                 {
-                    throw new MatchException("Order match error", 0);
+                    throw new MatchException("Order match error!", 0);
                 }
                 order.DeleteOrderItem(OrderItem_ID);
             }
@@ -105,7 +105,7 @@ namespace Example6_1
                 Order order = FindOrderID(Order_ID);
                 if (order == null)
                 {
-                    throw new MatchException("Order match error", 0);
+                    throw new MatchException("Order match error!", 0);
                 }
                 order.DeleteOrderItem(OrderItem_ID);
                 order.AddOrderItem(orderitem);
@@ -116,7 +116,7 @@ namespace Example6_1
                 Order order = FindOrderID(ID);
                 if(order == null)
                 {
-                    throw new MatchException("Delete order match error", 2);
+                    throw new MatchException("Delete order match error!", 2);
                 }
                 return new Order(order);
             }
@@ -138,7 +138,7 @@ namespace Example6_1
                 Order order = FindOrderID(Order_ID);
                 if (order == null)
                 {
-                    throw new MatchException("Order match error", 0);
+                    throw new MatchException("Order match error!", 0);
                 }
                 OrderItem orderitem = order.FindOrderItem(OrderItem_ID);
                 return orderitem;
@@ -149,7 +149,7 @@ namespace Example6_1
                 Order order = FindOrderID(Order_ID);
                 if (order == null)
                 {
-                    throw new MatchException("Order match error", 0);
+                    throw new MatchException("Order match error!", 0);
                 }
                 var query = order.orderitems.Where(func).OrderBy(orderitem => orderitem.Price * orderitem.Quantity);
                 return query.ToList<OrderItem>();
@@ -160,7 +160,7 @@ namespace Example6_1
                 Order order = FindOrderID(Order_ID);
                 if (order == null)
                 {
-                    throw new MatchException("Order match error", 0);
+                    throw new MatchException("Order match error!", 0);
                 }
                 var query = order.orderitems.Where(orderitem => orderitem.ProductName == ProductName)
                     .OrderBy(orderitem => orderitem.Price * orderitem.Quantity);
@@ -228,6 +228,10 @@ namespace Example6_1
                 }
             }
             public List<OrderItem> orderitems;
+            public List<OrderItem> OrderItems
+            {
+                get { return orderitems; }
+            }
 
             public Order(int ID, string CustomerName)
             {
@@ -302,7 +306,7 @@ namespace Example6_1
                 OrderItem orderitem = FindOrderItemID(ID);
                 if (orderitem == null)
                 {
-                    throw new MatchException("OrderItem match error", 3);
+                    throw new MatchException("OrderItem match error!", 3);
                 }
                 return new OrderItem(orderitem);
             }
@@ -311,7 +315,7 @@ namespace Example6_1
             {
                 if (CheckOrderItem(orderitem))
                 {
-                    throw new MatchException("Add orderItem match error", 4);
+                    throw new MatchException("Add orderItem match error!", 4);
                 }
                 orderitems.Add(new OrderItem(orderitem));
             }
@@ -321,7 +325,7 @@ namespace Example6_1
                 OrderItem orderitem = FindOrderItemID(ID);
                 if (orderitem == null)
                 {
-                    throw new MatchException("Delete orderItem match error", 5);
+                    throw new MatchException("Delete orderItem match error!", 5);
                 }
                 orderitems.Remove(orderitem);
             }
