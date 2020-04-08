@@ -16,16 +16,17 @@ namespace Example6_1
         public class MatchException : Exception
         {
             private int code;
+            public int Code { get => code; }
             public MatchException(string message, int code) : base(message)
             {
                 this.code = code;
             }
-            public int Code { get => code; }
         }
 
         public class OrderService
         {
-            public List<Order> orders;
+            private List<Order> orders;
+            public List<Order> Orders { get { return orders; } }
             public int order_amount { get => orders.Count; }
 
             public OrderService()
@@ -164,7 +165,7 @@ namespace Example6_1
                 }
                 var query = order.orderitems.Where(orderitem => orderitem.ProductName == ProductName)
                     .OrderBy(orderitem => orderitem.Price * orderitem.Quantity);
-                return query.ToList<OrderItem>();
+                return query.ToList();
             }
             
             public void SortOrder()
@@ -188,7 +189,7 @@ namespace Example6_1
             public void Export(string Filename)
             {
                 XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Order>));
-                using (FileStream fs = new FileStream(Filename + ".xml", FileMode.Create))
+                using (FileStream fs = new FileStream(Filename, FileMode.Create))
                 {
                     xmlSerializer.Serialize(fs, orders);
                 }
@@ -228,10 +229,9 @@ namespace Example6_1
                 }
             }
             public List<OrderItem> orderitems;
-            public List<OrderItem> OrderItems
-            {
-                get { return orderitems; }
-            }
+
+            [XmlIgnore]
+            public List<OrderItem> OrderItems { get { return orderitems; } }
 
             public Order(int ID, string CustomerName)
             {
@@ -388,6 +388,7 @@ namespace Example6_1
             {
                 order.AddOrderItem(new OrderItem(i, "product" + i, 300, 10));
             }
+            Console.WriteLine(order.TotalPrice);
             orderService.AddOrder(order);
             orderService.Export();
             OrderService orderService_1 = new OrderService();
