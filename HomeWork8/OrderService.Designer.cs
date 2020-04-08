@@ -29,16 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.OrderGridView = new System.Windows.Forms.DataGridView();
-            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.OrderItemGridView = new System.Windows.Forms.DataGridView();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OrderItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.label_Property = new System.Windows.Forms.Label();
@@ -46,7 +37,7 @@
             this.button_done = new System.Windows.Forms.Button();
             this.label_Query = new System.Windows.Forms.Label();
             this.textBox_OrderQuery = new System.Windows.Forms.TextBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.NewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OrderItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,62 +46,26 @@
             this.DeleteOrderItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DpdateOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DpdateOrderItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.splitter1 = new System.Windows.Forms.Splitter();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.OrderGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OrderBindingSource)).BeginInit();
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.OrderGridView = new System.Windows.Forms.DataGridView();
+            this.OrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalPriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.OrderItemGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrderItemsBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.menuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.OrderGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OrderBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // OrderGridView
-            // 
-            this.OrderGridView.AutoGenerateColumns = false;
-            this.OrderGridView.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.OrderGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.OrderGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDDataGridViewTextBoxColumn1,
-            this.customerNameDataGridViewTextBoxColumn,
-            this.totalPriceDataGridViewTextBoxColumn});
-            this.OrderGridView.DataSource = this.OrderBindingSource;
-            this.OrderGridView.Dock = System.Windows.Forms.DockStyle.Left;
-            this.OrderGridView.Location = new System.Drawing.Point(0, 159);
-            this.OrderGridView.Name = "OrderGridView";
-            this.OrderGridView.ReadOnly = true;
-            this.OrderGridView.RowTemplate.Height = 27;
-            this.OrderGridView.Size = new System.Drawing.Size(477, 394);
-            this.OrderGridView.TabIndex = 1;
-            this.OrderGridView.CurrentCellChanged += new System.EventHandler(this.OrderGridView_CurrentCellChanged);
-            // 
-            // iDDataGridViewTextBoxColumn1
-            // 
-            this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn1.HeaderText = "OrderID";
-            this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
-            this.iDDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // customerNameDataGridViewTextBoxColumn
-            // 
-            this.customerNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerName";
-            this.customerNameDataGridViewTextBoxColumn.HeaderText = "CustomerName";
-            this.customerNameDataGridViewTextBoxColumn.Name = "customerNameDataGridViewTextBoxColumn";
-            this.customerNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.customerNameDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // totalPriceDataGridViewTextBoxColumn
-            // 
-            this.totalPriceDataGridViewTextBoxColumn.DataPropertyName = "TotalPrice";
-            this.totalPriceDataGridViewTextBoxColumn.HeaderText = "TotalPrice";
-            this.totalPriceDataGridViewTextBoxColumn.Name = "totalPriceDataGridViewTextBoxColumn";
-            this.totalPriceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // OrderBindingSource
-            // 
-            this.OrderBindingSource.DataSource = typeof(Example6_1.OrderServiceSource.Order);
             // 
             // OrderItemGridView
             // 
@@ -118,7 +73,7 @@
             this.OrderItemGridView.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.OrderItemGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.OrderItemGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn1,
             this.ProductName,
             this.Price,
             this.Quantity});
@@ -130,34 +85,6 @@
             this.OrderItemGridView.RowTemplate.Height = 27;
             this.OrderItemGridView.Size = new System.Drawing.Size(505, 394);
             this.OrderItemGridView.TabIndex = 2;
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "OrderItemID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ProductName
-            // 
-            this.ProductName.DataPropertyName = "ProductName";
-            this.ProductName.HeaderText = "ProductName";
-            this.ProductName.Name = "ProductName";
-            this.ProductName.ReadOnly = true;
-            // 
-            // Price
-            // 
-            this.Price.DataPropertyName = "Price";
-            this.Price.HeaderText = "Price";
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            // 
-            // Quantity
-            // 
-            this.Quantity.DataPropertyName = "Quantity";
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
             // 
             // OrderItemsBindingSource
             // 
@@ -171,7 +98,7 @@
             this.panel1.Controls.Add(this.button_done);
             this.panel1.Controls.Add(this.label_Query);
             this.panel1.Controls.Add(this.textBox_OrderQuery);
-            this.panel1.Controls.Add(this.menuStrip1);
+            this.panel1.Controls.Add(this.menuStrip);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -206,10 +133,10 @@
             // button_done
             // 
             this.button_done.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button_done.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_done.Location = new System.Drawing.Point(866, 100);
+            this.button_done.Font = new System.Drawing.Font("宋体", 15F);
+            this.button_done.Location = new System.Drawing.Point(820, 70);
             this.button_done.Name = "button_done";
-            this.button_done.Size = new System.Drawing.Size(75, 28);
+            this.button_done.Size = new System.Drawing.Size(100, 50);
             this.button_done.TabIndex = 8;
             this.button_done.Text = "Done";
             this.button_done.UseVisualStyleBackColor = true;
@@ -235,19 +162,19 @@
             this.textBox_OrderQuery.Size = new System.Drawing.Size(500, 30);
             this.textBox_OrderQuery.TabIndex = 6;
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(5, 5, 0, 2);
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.GripMargin = new System.Windows.Forms.Padding(5, 5, 0, 2);
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.NewToolStripMenuItem,
             this.EditToolStripMenuItem,
             this.fileToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(982, 31);
-            this.menuStrip1.TabIndex = 3;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(982, 31);
+            this.menuStrip.TabIndex = 3;
+            this.menuStrip.Text = "menuStrip1";
             // 
             // NewToolStripMenuItem
             // 
@@ -313,14 +240,6 @@
             this.DpdateOrderItemToolStripMenuItem.Text = "Update OrderItem";
             this.DpdateOrderItemToolStripMenuItem.Click += new System.EventHandler(this.UpdateOrderItemToolStripMenuItem_Click);
             // 
-            // splitter1
-            // 
-            this.splitter1.Location = new System.Drawing.Point(477, 159);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 394);
-            this.splitter1.TabIndex = 4;
-            this.splitter1.TabStop = false;
-            // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -334,16 +253,96 @@
             // importToolStripMenuItem
             // 
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(216, 28);
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(141, 28);
             this.importToolStripMenuItem.Text = "Import";
             this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
             // exportToolStripMenuItem
             // 
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(216, 28);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(141, 28);
             this.exportToolStripMenuItem.Text = "Export";
             this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
+            // 
+            // splitter1
+            // 
+            this.splitter1.Location = new System.Drawing.Point(477, 159);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 394);
+            this.splitter1.TabIndex = 4;
+            this.splitter1.TabStop = false;
+            // 
+            // OrderGridView
+            // 
+            this.OrderGridView.AutoGenerateColumns = false;
+            this.OrderGridView.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.OrderGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.OrderGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.CustomerName,
+            this.totalPriceDataGridViewTextBoxColumn1});
+            this.OrderGridView.DataSource = this.OrderBindingSource;
+            this.OrderGridView.Dock = System.Windows.Forms.DockStyle.Left;
+            this.OrderGridView.Location = new System.Drawing.Point(0, 159);
+            this.OrderGridView.Name = "OrderGridView";
+            this.OrderGridView.ReadOnly = true;
+            this.OrderGridView.RowTemplate.Height = 27;
+            this.OrderGridView.Size = new System.Drawing.Size(477, 394);
+            this.OrderGridView.TabIndex = 1;
+            this.OrderGridView.CurrentCellChanged += new System.EventHandler(this.OrderGridView_CurrentCellChanged);
+            // 
+            // OrderBindingSource
+            // 
+            this.OrderBindingSource.DataSource = typeof(Example6_1.OrderServiceSource.Order);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "OrderID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // CustomerName
+            // 
+            this.CustomerName.DataPropertyName = "CustomerName";
+            this.CustomerName.HeaderText = "CustomerName";
+            this.CustomerName.Name = "CustomerName";
+            this.CustomerName.ReadOnly = true;
+            // 
+            // totalPriceDataGridViewTextBoxColumn1
+            // 
+            this.totalPriceDataGridViewTextBoxColumn1.DataPropertyName = "TotalPrice";
+            this.totalPriceDataGridViewTextBoxColumn1.HeaderText = "TotalPrice";
+            this.totalPriceDataGridViewTextBoxColumn1.Name = "totalPriceDataGridViewTextBoxColumn1";
+            this.totalPriceDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "ID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "OrderItemID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // ProductName
+            // 
+            this.ProductName.DataPropertyName = "ProductName";
+            this.ProductName.HeaderText = "ProductName";
+            this.ProductName.Name = "ProductName";
+            this.ProductName.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "Price";
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.DataPropertyName = "Quantity";
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
             // 
             // OrderServiceForm
             // 
@@ -354,28 +353,27 @@
             this.Controls.Add(this.OrderItemGridView);
             this.Controls.Add(this.OrderGridView);
             this.Controls.Add(this.panel1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.menuStrip;
             this.Name = "OrderServiceForm";
             this.Text = "OrderService";
             this.Load += new System.EventHandler(this.OrderServiceForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.OrderGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OrderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrderItemGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrderItemsBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.OrderGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OrderBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView OrderGridView;
         private System.Windows.Forms.DataGridView OrderItemGridView;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem NewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem EditToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DeleteOrderToolStripMenuItem;
@@ -383,16 +381,11 @@
         private System.Windows.Forms.ToolStripMenuItem DpdateOrderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DpdateOrderItemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem OrderItemToolStripMenuItem;
-        private System.Windows.Forms.BindingSource OrderBindingSource;
         private System.Windows.Forms.ToolStripMenuItem OrderToolStripMenuItem;
         private System.Windows.Forms.BindingSource OrderItemsBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.Label label_Property;
         private System.Windows.Forms.ComboBox comboBox_OrderProperty;
         private System.Windows.Forms.Button button_done;
@@ -401,6 +394,15 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
+        private System.Windows.Forms.DataGridView OrderGridView;
+        private System.Windows.Forms.BindingSource OrderBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalPriceDataGridViewTextBoxColumn1;
     }
 }
 

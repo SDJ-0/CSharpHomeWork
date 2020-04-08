@@ -21,7 +21,7 @@ namespace Example8_1
         {
             InitializeComponent();
             orderService = new OrderService();
-            OrderBindingSource.DataSource = orderService.orders;
+            OrderBindingSource.DataSource = orderService.Orders;
             key = "*";
             textBox_OrderQuery.DataBindings.Add("Text", this, "key");
             comboBox_OrderProperty.DataSource = properties;
@@ -29,7 +29,7 @@ namespace Example8_1
 
         private void OrderServiceForm_Load(object sender, EventArgs e)
         {
-            for(int i = 1; i < 10; i++)
+            for (int i = 1; i < 10; i++)
             {
                 Order order = new Order(i, ((char)((int)'a' + 1)).ToString());
                 for (int j = i + 10; j < 20; j++)
@@ -42,7 +42,7 @@ namespace Example8_1
             OrderBindingSource.ResetBindings(true);
         }
 
-        public string[] properties=
+        public string[] properties = 
         {
             "OrderID",
             "CustomerName",
@@ -203,17 +203,17 @@ namespace Example8_1
         private void button_done_Click(object sender, EventArgs e)
         {
             OrderItemsBindingSource.DataSource = OrderBindingSource;
+            int index = comboBox_OrderProperty.Items.IndexOf(comboBox_OrderProperty.Text);
 
             if (key == null || key == "*")
             {
                 key = "";
             }
-            if(OrderBindingSource.Count == 0)
+            if (OrderBindingSource.Count == 0 && index > 2)
             {
                 return;
             }
 
-            int index = comboBox_OrderProperty.Items.IndexOf(comboBox_OrderProperty.Text);
             Order order = (Order)OrderBindingSource.Current;
 
             switch (index)
@@ -269,6 +269,10 @@ namespace Example8_1
             try
             {
                 orderService.Import(FileName + ".xml");
+                OrderBindingSource.DataSource = orderService.Orders;
+                OrderBindingSource.ResetBindings(true);
+                MessageBox.Show("Import successfully!");
+
             }
             catch (FileNotFoundException)
             {
@@ -287,7 +291,8 @@ namespace Example8_1
                 }
                 else return;
             }
-            orderService.Export(FileName);
+            orderService.Export(FileName + ".xml");
+            MessageBox.Show("Export successfully!");
         }
     }
 }
