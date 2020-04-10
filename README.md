@@ -1,3 +1,2 @@
 # CSharpHomeWork
-CSharpHomeWork
 Code only!
