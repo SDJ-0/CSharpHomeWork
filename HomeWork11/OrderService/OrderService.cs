@@ -20,7 +20,7 @@ namespace OrderApp
         public OrderService()
         {
             //orders = new List<Order>();
-            var _temp = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
+            //var _temp = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
             using (var context = new OrderContext())
             {
                 orders = context.Orders.Include(o => o.Customer).Include(o => o.OrderItems)
@@ -98,11 +98,12 @@ namespace OrderApp
                 if (oldOrder == null)
                     throw new ApplicationException($"修改错误：订单 {newOrder.OrderID} 不存在!");
                 Customer customer = context.Customers.FirstOrDefault(c => c.OrderID == newOrder.OrderID);
-                List<OrderItem> orderItems = context.OrderItems.Where(oi => oi.OrderID == newOrder.OrderID).ToList();
-                List<Goods> goods = context.Goods.Where(g => g.OrderID == newOrder.OrderID).ToList();
+                //List<OrderItem> orderItems = context.OrderItems.Where(oi => oi.OrderID == newOrder.OrderID).ToList();
+                //List<Goods> goods = context.Goods.Where(g => g.OrderID == newOrder.OrderID).ToList();
                 context.Orders.Remove(oldOrder);
                 context.Customers.Remove(customer);
                 context.Orders.Add(newOrder);
+                /*
                 foreach(OrderItem oi in orderItems)
                 {
                     context.OrderItems.Remove(oi);
@@ -110,7 +111,7 @@ namespace OrderApp
                 foreach(Goods g in goods)
                 {
                     context.Goods.Remove(g);
-                }
+                }*/
                 context.SaveChanges();
                 orders = context.Orders.Include(o => o.Customer).Include(o => o.OrderItems)
                     .Include(o => o.OrderItems.Select(oi => oi.GoodsItem)).ToList();
